@@ -1,0 +1,15 @@
+Host *.mesosphe.re
+	IdentityFile ~/.ssh/id_rsa.default-mesosphere
+	IdentityFile ~/.ssh/mesosphere
+
+# Added by Krypton
+Host *
+	IdentityAgent ~/.kr/krd-agent.sock
+	ProxyCommand /usr/bin/krssh %h %p
+	IdentityFile ~/.ssh/id_rsa.default-mesosphere
+	IdentityFile ~/.ssh/id_krypton
+	IdentityFile ~/.ssh/id_ed25519
+	IdentityFile ~/.ssh/id_rsa
+	IdentityFile ~/.ssh/id_ecdsa
+	IdentityFile ~/.ssh/id_dsa
+	IdentityFile ~/.ssh/mesosphere
