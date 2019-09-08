@@ -1,0 +1,56 @@
+[push]
+        default = current
+[merge]
+        tool = meld
+[alias]
+        cp = cherry-pick
+        st = status -s
+        cl = clone
+        ci = commit
+        co = checkout
+        br = branch 
+        diff = diff --word-diff
+        dc = diff --cached
+        r = reset
+        r1 = reset HEAD^
+        r2 = reset HEAD^^
+        rh = reset --hard
+        rh1 = reset HEAD^ --hard
+        rh2 = reset HEAD^^ --hard
+        grep = grep -Ii
+        gr = grep -Ii
+        dlc = diff --cached HEAD^
+        llog = log --pretty=format:'%C(yellow)%h %Cred%ad %Cblue%an%Cgreen%d %Creset%s' --date=iso
+        lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+        llg = log --pretty=format:'%Cred%h%Creset %C(bold blue)<%an>%Creset%C(yellow)%d%Creset %Cgreen(%cr)%Creset%n%w(80,8,8)%s%n' --graph --name-status
+        ss = status -s
+        ap = add --patch
+        purr = pull --rebase
+        trackallbranches = !sh -c "for branchname in `git branch -r `; do git branch --track $branchname; done"
+        branches = branch -avvl
+        delete-branch = branch -D
+        delete-remote-branch = !sh -c 'git push origin :$1'
+	addcw = -c interactive.diffFilter=\"git diff --color-words\" add -p
+[color]
+        ui = auto
+[diff]
+        renames = copies
+        algorithm = patience
+[core]
+        editor = vim
+	excludesfile = /home/janisz/.gitignore
+[apply]
+    whitespace = nowarn
+[help]
+    autocorrect = 1 #fucking magic!
+[user]
+	email = janiszt@gmail.com
+	name = Tomasz Janiszewski
+[gpg]
+	program = /usr/bin/krgpg
+[commit]
+	gpgSign = true
+[tag]
+	forceSignAnnotated = true
+[init]
+	templatedir = ~/.git-templates
